@@ -1,12 +1,12 @@
 //create server
-const express=require('express');
-const cookieParser=require('cookie-parser');
-const authRoutes=require('./routes/auth.routes');//isse pta chlega ki post kr rhe hain woh server ko pta chle
-const foodRoutes=require("./routes/food.routes")
-const foodPartnerRoutes=require("./routes/food-partner.routes")
-const cors=require('cors');
+// const express=require('express');
+// const cookieParser=require('cookie-parser');
+// const authRoutes=require('./routes/auth.routes');//isse pta chlega ki post kr rhe hain woh server ko pta chle
+// const foodRoutes=require("./routes/food.routes")
+// const foodPartnerRoutes=require("./routes/food-partner.routes")
+// const cors=require('cors');
 
-const app=express();
+// const app=express();
 /*app.use(cors({
     //origin:"http://localhost:5173", kyuki create food me arror aa rha hai 
    
