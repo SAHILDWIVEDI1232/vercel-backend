@@ -14,10 +14,25 @@ const app=express();
 
 }));*/
 
+// app.use(cors({
+//   origin: ["http://localhost:5173", "http://localhost:5174"],
+//   credentials: true
+// }));
+// app.use(cors({
+//   origin: "https://vercel-frontend-ashy-alpha.vercel.app",
+//   credentials: true
+// }));
+
+const allowedOrigins = [
+  "http://localhost:5173",
+  "https://vercel-frontend-ashy-alpha.vercel.app"
+];
+
 app.use(cors({
-  origin: ["http://localhost:5173", "http://localhost:5174"],
+  origin: allowedOrigins,
   credentials: true
 }));
+
 
 app.use(cookieParser());
 //middleware for reading data from req.body
