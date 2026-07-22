@@ -59,42 +59,10 @@ const allowedOrigins = [
 ];
 
 
-// CORS CONFIG
 app.use(cors({
-  origin: function(origin, callback){
-
-    // allow postman / server requests
-    if(!origin){
-      return callback(null, true);
-    }
-
-    if(allowedOrigins.includes(origin)){
-      return callback(null, true);
-    }
-
-    return callback(new Error("CORS Error: Origin not allowed"));
-  },
-
-  credentials: true,
-
-  methods: [
-    "GET",
-    "POST",
-    "PUT",
-    "DELETE",
-    "PATCH",
-    "OPTIONS"
-  ],
-
-  allowedHeaders: [
-    "Content-Type",
-    "Authorization"
-  ]
+  origin: allowedOrigins,
+  credentials: true
 }));
-
-
-// handle preflight request
-app.options("*", cors());
 
 
 app.use(cookieParser());
@@ -102,15 +70,11 @@ app.use(cookieParser());
 app.use(express.json());
 
 
-
-// test route
 app.get("/", (req,res)=>{
     res.send("Hello World");
 });
 
 
-
-// routes
 app.use('/api/auth', authRoutes);
 
 app.use('/api/food', foodRoutes);
@@ -118,6 +82,4 @@ app.use('/api/food', foodRoutes);
 app.use('/api/food-partner', foodPartnerRoutes);
 
 
-
 module.exports = app;
-
